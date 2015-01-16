@@ -155,7 +155,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_2">
+    <widget class="QGroupBox" name="uiAlphaBox">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
        <horstretch>0</horstretch>
@@ -173,7 +173,7 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QSlider" name="horizontalSlider">
+       <widget class="QSlider" name="uiAlphaSlider">
         <property name="maximum">
          <number>100</number>
         </property>
@@ -201,6 +201,12 @@
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QLabel" name="uiLabelRgbaResult">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
          <pointsize>16</pointsize>
@@ -210,7 +216,7 @@
         <string notr="true">color: #323232;</string>
        </property>
        <property name="text">
-        <string>rgba(156, 233, 323, 0.5)</string>
+        <string>value</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -258,6 +264,9 @@
        </property>
        <property name="autoFillBackground">
         <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #323232;</string>
        </property>
        <property name="inputMethodHints">
         <set>Qt::ImhNone</set>
