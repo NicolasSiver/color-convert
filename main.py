@@ -10,8 +10,9 @@ from utils import colors
 class ColorApp(QWidget):
     def __init__(self, app):
         super().__init__()
-        self.clipboard = app.clipboard()
         uic.loadUi('./ui/mainWindow.ui', self)
+        self.clipboard = app.clipboard()
+        self.colorInputs = [self.uiRedInput, self.uiGreenInput, self.uiBlueInput]
         self.onChange(0)
         self.addListeners()
 
@@ -23,6 +24,18 @@ class ColorApp(QWidget):
         self.uiAlphaSlider.valueChanged.connect(self.onChange)
         self.uiCopyRgb.clicked.connect(self.rgbWillCopy)
         self.uiCopyHex.clicked.connect(self.hexWillCopy)
+        self.uiHexInput.textEdited.connect(self.hexDidEdit)
+
+    def hexDidEdit(self, value):
+        rgb = colors.colorHexToRgb(value)
+
+        for index, color in enumerate(rgb):
+            input = self.colorInputs[index]
+            input.blockSignals(True)
+            input.setValue(color)
+            input.blockSignals(False)
+
+        self.updateOutput()
 
     def hexWillCopy(self):
         self.clipboard.setText(self.uiHexInput.text())

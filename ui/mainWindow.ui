@@ -283,14 +283,11 @@
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>
-       <property name="styleSheet">
-        <string notr="true">color: #323232;</string>
-       </property>
        <property name="inputMethodHints">
         <set>Qt::ImhNone</set>
        </property>
-       <property name="text">
-        <string>#FF5655</string>
+       <property name="inputMask">
+        <string>\#hhhhhh</string>
        </property>
        <property name="maxLength">
         <number>7</number>
