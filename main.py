@@ -8,8 +8,9 @@ from utils import colors
 
 
 class ColorApp(QWidget):
-    def __init__(self):
+    def __init__(self, app):
         super().__init__()
+        self.clipboard = app.clipboard()
         uic.loadUi('./ui/mainWindow.ui', self)
         self.onChange(0)
         self.addListeners()
@@ -20,10 +21,18 @@ class ColorApp(QWidget):
         self.uiBlueInput.valueChanged.connect(self.onChange)
         self.uiAlphaBox.toggled.connect(self.onChange)
         self.uiAlphaSlider.valueChanged.connect(self.onChange)
+        self.uiCopyRgb.clicked.connect(self.rgbWillCopy)
+        self.uiCopyHex.clicked.connect(self.hexWillCopy)
+
+    def hexWillCopy(self):
+        self.clipboard.setText(self.uiHexInput.text())
 
     def onChange(self, value):
         self.updateHex()
         self.updateOutput()
+
+    def rgbWillCopy(self):
+        self.clipboard.setText(self.uiLabelRgbaResult.text())
 
     def updateOutput(self):
         output = 'rgb({}, {}, {})'
@@ -43,6 +52,6 @@ class ColorApp(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = ColorApp()
+    window = ColorApp(app)
     window.show()
     sys.exit(app.exec_())
