@@ -141,7 +141,7 @@ main = Target(
 
 py2exe_options = dict(
     packages=[],
-    excludes="tof_specials Tkinter".split(),
+    excludes="tof_specials Tkinter Tkconstants tcl select _ssl pdb unittest difflib inspect doctets pywin pywin.debugger pywin.debugger.dbgcon pywin.dialogs pywin.dialogs.list".split(),
     includes=['sip'],
 ##    ignores = "dotblas gnosis.xml.pickle.parsers._cexpat mx.DateTime".split(),
 ##    dll_excludes = "MSVCP90.dll mswsock.dll powrprof.dll".split(),
@@ -160,6 +160,7 @@ setup(name="name",
 
       # windows subsystem executables (no console)
       windows=[main],
+      version='1.0.0',
 
       # py2exe options
       data_files=[('ui', ['ui/mainWindow.ui']), ('platforms', ['C:/Python34/Lib/site-packages/PyQt5/plugins/platforms/qwindows.dll'])],
