@@ -3,4 +3,4 @@ A very small program for color conversion from HEX to RGBA and vice versa. Will 
 
 # Screenshots
 
-![Main window](http://i.imgur.com/Ehw33v1.png)
+![Main window](http://i.imgur.com/4VzZFc1.png)
